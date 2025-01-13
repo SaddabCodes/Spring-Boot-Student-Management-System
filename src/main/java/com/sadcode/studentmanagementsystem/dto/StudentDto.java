@@ -1,11 +1,17 @@
 package com.sadcode.studentmanagementsystem.dto;
 
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 
 public class StudentDto {
     private Long id;
+    @NotEmpty(message = "student first name should not be empty")
     private String firstName;
+    @NotEmpty(message = "student last name should not be empty")
     private String lastName;
+    @NotEmpty(message = "student email name should not be empty")
+    @Email
     private String email;
 
     public StudentDto(){
