@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sadcode</groupId>
-    <artifactId>Student-Management-System</artifactId>
+    <artifactId>SpringBoot-Student-Management-System</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Student-Management-System</name>
     <description>Student-Management-System</description>
