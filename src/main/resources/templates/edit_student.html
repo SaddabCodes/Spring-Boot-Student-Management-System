@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Student Management System</title>
+    <title>Edit Student</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
@@ -19,10 +19,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link btn btn-success text-white me-2" th:href="@{/students/new}">New Student</a>
+                    <a class="nav-link" th:href="@{/students/new}">New Student</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary text-white" th:href="@{/students}">Students</a>
+                    <a class="nav-link btn btn-success text-white" th:href="@{/students}">Students</a>
                 </li>
             </ul>
         </div>
@@ -33,50 +33,51 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
-                <div class="card-header bg-primary text-white text-center">
-                    <h2>Create Student</h2>
+                <div class="card-header bg-primary text-white">
+                    <h2 class="text-center mb-0">Edit Student</h2>
                 </div>
                 <div class="card-body">
                     <form
                             method="post"
                             role="form"
-                            th:action="@{/students}"
+                            th:action="@{/students/{studentId}(studentId=${student.id})}"
                             th:object="${student}">
-                        <div class="form-group mb-3">
-                            <label class="form-label fw-bold">Student First Name</label>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">Student First Name</label>
                             <input class="form-control"
                                    type="text"
                                    id="firstName"
                                    name="firstName"
                                    placeholder="Enter first name"
                                    th:field="*{firstName}">
-                            <p th:if="${#fields.hasErrors('firstName')}" class="text-danger small" th:errors="*{firstName}"></p>
+                            <p th:if="${#fields.hasErrors('firstName')}" class="text-danger" th:errors="*{firstName}"></p>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label class="form-label fw-bold">Student Last Name</label>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Student Last Name</label>
                             <input class="form-control"
                                    type="text"
                                    id="lastName"
                                    name="lastName"
                                    placeholder="Enter last name"
                                    th:field="*{lastName}">
-                            <p th:if="${#fields.hasErrors('lastName')}" class="text-danger small" th:errors="*{lastName}"></p>
+                            <p th:if="${#fields.hasErrors('lastName')}" class="text-danger" th:errors="*{lastName}"></p>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label class="form-label fw-bold">Student Email-Id</label>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Student Email-Id</label>
                             <input class="form-control"
                                    type="email"
                                    id="email"
                                    name="email"
                                    placeholder="Enter email address"
                                    th:field="*{email}">
-                            <p th:if="${#fields.hasErrors('email')}" class="text-danger small" th:errors="*{email}"></p>
+                            <p th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></p>
                         </div>
 
-                        <div class="d-grid">
-                            <button class="btn btn-success btn-lg" type="submit">Submit</button>
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                            <a class="btn btn-secondary btn-lg ms-2" th:href="@{/students}">Cancel</a>
                         </div>
                     </form>
                 </div>
@@ -84,6 +85,7 @@
         </div>
     </div>
 </div>
+
 
 </body>
 </html>
